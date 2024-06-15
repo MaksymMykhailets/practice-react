@@ -1,11 +1,6 @@
-import { composeWithDevTools } from '@redux-devtools/extension';
-import { combineReducers, createStore } from 'redux';
-import { balanceReducer } from './balanceSlice';
-import { itemsReducer } from './itemsSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import { rootReducer } from './rootReducer';
 
-const reducer = combineReducers({
-  balance: balanceReducer,
-  items: itemsReducer,
+export const store = configureStore({
+  reducer: rootReducer,
 });
-
-export const store = createStore(reducer, composeWithDevTools());
